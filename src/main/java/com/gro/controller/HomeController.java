@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class HomeController {
     @ResponseBody
-    @RequestMapping("/")
+    @RequestMapping(value = "/", produces = "text/html")
     public String index() {
         return "This is a response from the web service";
     }

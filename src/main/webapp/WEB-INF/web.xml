@@ -5,7 +5,7 @@
          version="2.5">
 
     <display-name>Gro</display-name>
-    <description>Gro Web View</description>
+    <description>Gro Web Services</description>
 
     <!-- For web context -->
     <servlet>
