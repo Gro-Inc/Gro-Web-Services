@@ -1,6 +1,7 @@
 package com.gro.controller;
 
-import com.gro.DTO.RESTResponse;
+import com.gro.model.DTO.RESTResponse;
+import com.gro.model.constants.Tables;
 import com.mongodb.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +24,7 @@ public class ChatController {
     public void init() throws UnknownHostException {
         mongoClient = new MongoClient( "localhost" , 27017 );
         db = mongoClient.getDB("gro");
-        messagesTable = db.getCollection("messages");
+        messagesTable = db.getCollection(Tables.MESSAGES.getTableName());
     }
 
     @ResponseBody
@@ -46,12 +47,13 @@ public class ChatController {
     @RequestMapping(value = "/get-messages", method = RequestMethod.GET)
     public RESTResponse<List<String>> getMessages() {
         final DBCursor cursor = messagesTable.find();
-        final RESTResponse<List<String>> restMessages = new RESTResponse<>();
         final List<String> messages = new ArrayList<>(0);
 
         while (cursor.hasNext()) {
             messages.add((String) cursor.next().get("message"));
         }
+
+        final RESTResponse<List<String>> restMessages = new RESTResponse<>();
 
         restMessages.setData(messages);
 

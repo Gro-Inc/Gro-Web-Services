@@ -1,6 +1,6 @@
 package com.gro.controller;
 
-import com.gro.DTO.RESTResponse;
+import com.gro.model.DTO.RESTResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

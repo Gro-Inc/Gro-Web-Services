@@ -1,4 +1,4 @@
-package com.gro.DTO;
+package com.gro.model.DTO;
 
 public final class RESTResponse<T> {
     private T data;
