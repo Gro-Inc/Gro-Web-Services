@@ -1,11 +1,12 @@
 package com.gro.model.constants;
 
-public enum Tables {
-    MESSAGES("messages");
+public enum Table {
+    MESSAGES("messages"),
+    USERS("users");
 
     private final String tableName;
 
-    Tables(final String tableName) {
+    Table(final String tableName) {
         this.tableName = tableName;
     }
 
